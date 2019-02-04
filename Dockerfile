@@ -18,7 +18,19 @@ FROM debian:wheezy
 MAINTAINER Paolo Di Tommaso
 
 RUN apt-get update --fix-missing\
- && apt-get install -y procps time stress\
+ && apt-get install -y procps time stress gcc\
  && apt-get clean
 
 COPY *.pl /usr/local/bin/
+
+RUN mkdir /usr/local/build
+
+COPY src/*.c /usr/local/build/
+
+WORKDIR /usr/local/build
+
+RUN gcc memory-vmem_1GiB_ram_1Gib.c -o memory-vmem_1GiB_ram_1Gib
+RUN gcc memory-vmem_1GiB_ram_0Gib.c -o memory-vmem_1GiB_ram_0Gib
+RUN mv memory-vmem_1GiB_ram_1Gib memory-vmem_1GiB_ram_0Gib /usr/local/bin
+
+RUN rm -r /usr/local/build
