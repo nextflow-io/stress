@@ -1,4 +1,4 @@
-// compile with: gcc memory-vmem_1GiB_ram_1Gib.c -o memory-vmem_1GiB_ram_1Gib
+// compile with: gcc memory_vmem_1GiB_ram_1Gib.c -o memory_vmem_1GiB_ram_1Gib
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/resource.h>
