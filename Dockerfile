@@ -29,8 +29,8 @@ COPY src/*.c /usr/local/build/
 
 WORKDIR /usr/local/build
 
-RUN gcc memory-vmem_1GiB_ram_1Gib.c -o memory-vmem_1GiB_ram_1Gib
-RUN gcc memory-vmem_1GiB_ram_0Gib.c -o memory-vmem_1GiB_ram_0Gib
-RUN mv memory-vmem_1GiB_ram_1Gib memory-vmem_1GiB_ram_0Gib /usr/local/bin
+RUN gcc memory_vmem_1GiB_ram_1Gib.c -o memory_vmem_1GiB_ram_1Gib
+RUN gcc memory_vmem_1GiB_ram_0Gib.c -o memory_vmem_1GiB_ram_0Gib
+RUN mv memory_vmem_1GiB_ram_1Gib memory_vmem_1GiB_ram_0Gib /usr/local/bin
 
 RUN rm -r /usr/local/build
